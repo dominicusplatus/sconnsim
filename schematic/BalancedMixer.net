@@ -1,0 +1,35 @@
+* /Users/dominikguz/Documents/LTspice/examples/Educational/BalancedMixer.asc
+L1 N004 0 .05µh
+L2 N002 0 .625µh
+L3 0 N010 .625µh
+L4 0 N005 .05µh
+L5 N009 N008 .625µh
+L6 N008 N001 .625µh
+D1 N002 N009 D
+D2 N009 N010 D
+D3 N010 N001 D
+D4 N001 N002 D
+V1 N003 0 SINE(0 3 10000000)
+V4 NC_01 0 SINE(0 2 10000)
+R1 N004 N003 50
+R2 N008 N011 50
+V2 N011 0 wavefile="/Users/dominikguz/Downloads/ltsound1.wav"
+R3 N007 N006 150
+C1 N007 0 100p
+C2 N006 N005 100p
+R4 N006 0 160
+.model D D
+.lib /Users/dominikguz/Library/Application Support/LTspice/lib/cmp/standard.dio
+k1 L1 L2 L3 .90
+* Input matching network
+* Vin
+* T37-6 core; 4:14:14 turns
+k2 L4 L5 L6 .90
+* Input matching network
+* Vin
+* T37-6 core; 4:14:14 turns
+.tran 0.0002
+.four 10000000 5
+* .ac lin 200 10e4 20e7
+.backanno
+.end
