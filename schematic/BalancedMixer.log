@@ -1,0 +1,23 @@
+Circuit: * /Users/dominikguz/Documents/LTspice/examples/Educational/BalancedMixer.asc
+
+WARNING: Less than two connections to node NC_01.  This node is used by V4.
+Direct Newton iteration for .op point succeeded.
+
+
+Date: Sat Aug 22 14:26:31 2015
+Total elapsed time: 4.198 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 540125
+traniter = 540121
+tranpoints = 187995
+accept = 137073
+rejected = 50922
+matrix size = 21
+fillins = 32
+solver = Normal
+Matrix Compiler1:     196 opcodes  0.5/[0.2]/0.2
+Matrix Compiler2:     166 opcodes
+

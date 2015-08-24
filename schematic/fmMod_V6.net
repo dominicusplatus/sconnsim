@@ -1,0 +1,60 @@
+* /Users/dominikguz/Documents/LTspice/examples/Educational/fmMod_V4.asc
+V12 NC_01 0 wavefile="/Users/dominikguz/Downloads/ltsound1.wav"
+V2 N004 0 SINE(1 1 15000) AC 1
+XU4 N003 0 0 0 NC_02 N002 0 RFMOD LTC1565 vvar=0 fvar=0 gvar=0
+V4 N001 0 12
+L1 N015 0 500µ
+L4 N011 0 625µh
+L5 0 N023 625µh
+L6 0 N016 500µh
+L7 N020 N009 625µh
+L8 N009 N006 625µh
+D1 N011 N020 D
+D2 N020 N023 D
+D3 N023 N006 D
+D4 N006 N011 D
+V9 N024 0 wavefile="/Users/dominikguz/Downloads/ltsound1.wav"
+Q1 N010 N012 N021 0 2N2222
+R2 N001 N010 12k
+R13 N021 0 1k
+R14 N012 0 10k
+R15 N001 N012 110k
+L9 RFMOD N012 1µ
+C6 N012 0 1µ
+V5 N022 0 SINE(0.7 0.25 10000000)
+L10 N010 N014 0.0000252
+C13 N014 0 1n
+R16 N015 N022 50
+XU6 0 N014 N009 0 TrafoLin LP=500u LS=500u KT=1
+C5 N018 N017 1µ
+R3 N018 0 1m
+XU7 N018 N005 N001 0 N013 LTC6244HV
+R4 N013 N005 10m
+R5 0 N005 1m
+R19 N017 N016 50
+XU8 0 N007 N003 N002 N019 N007 N008 N002 NE555
+V7 N002 0 5
+C9 N019 N004 1µ
+R20 N002 N008 500
+C16 N007 N002 10n
+R21 N007 N008 500
+.model D D
+.lib /Users/dominikguz/Library/Application Support/LTspice/lib/cmp/standard.dio
+.model NPN NPN
+.model PNP PNP
+.lib /Users/dominikguz/Library/Application Support/LTspice/lib/cmp/standard.bjt
+* .ac lin 200 10e2 20e4 ;tran 100usec
+.tran 100usec
+k1 L1 L4 L5 .90
+* Vin
+* T37-6 core; 4:14:14 turns
+k2 L6 L7 L8 .90
+* Input matching network
+* Vin
+* T37-6 core; 4:14:14 turns
+.lib LTC5.lib
+.lib LTC1565.sub
+.lib NE555.sub
+.lib Trafos.Lib
+.backanno
+.end
