@@ -1,7 +1,6 @@
-* /Users/dominikguz/Documents/LTspice/examples/Educational/fmMod_V4.asc
-V12 NC_01 0 wavefile="/Users/dominikguz/Downloads/ltsound1.wav"
+* H:\Electronics\git\sconnsim\schematic\fmMod_V6.asc
 V2 N004 0 SINE(1 1 15000) AC 1
-XU4 N003 0 0 0 NC_02 N002 0 RFMOD LTC1565 vvar=0 fvar=0 gvar=0
+XU4 N003 0 0 0 NC_01 N002 0 RFMOD LTC1565 vvar=0 fvar=0 gvar=0
 V4 N001 0 12
 L1 N015 0 500µ
 L4 N011 0 625µh
@@ -13,7 +12,7 @@ D1 N011 N020 D
 D2 N020 N023 D
 D3 N023 N006 D
 D4 N006 N011 D
-V9 N024 0 wavefile="/Users/dominikguz/Downloads/ltsound1.wav"
+V9 N024 0 wavefile="F://CCTV/sample.wav"
 Q1 N010 N012 N021 0 2N2222
 R2 N001 N010 12k
 R13 N021 0 1k
@@ -39,10 +38,10 @@ R20 N002 N008 500
 C16 N007 N002 10n
 R21 N007 N008 500
 .model D D
-.lib /Users/dominikguz/Library/Application Support/LTspice/lib/cmp/standard.dio
+.lib C:\IDE\LTSpice\lib\cmp\standard.dio
 .model NPN NPN
 .model PNP PNP
-.lib /Users/dominikguz/Library/Application Support/LTspice/lib/cmp/standard.bjt
+.lib C:\IDE\LTSpice\lib\cmp\standard.bjt
 * .ac lin 200 10e2 20e4 ;tran 100usec
 .tran 100usec
 k1 L1 L4 L5 .90
